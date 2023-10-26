@@ -1,4 +1,4 @@
-#include "Edge.h"
+#include "GraphNode.h"
 
 Edge::Edge()
 {
@@ -13,7 +13,6 @@ Edge::Edge(GraphNode* root, GraphNode* destination)
 
 	m_weight = sqrt(pow(abs(root_position.first - destination_position.first), 2)
 		+ pow(abs(root_position.second - destination_position.second), 2));
-
 	m_direction = destination;
 }
 

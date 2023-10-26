@@ -1,9 +1,11 @@
-#ifndef TEST_GRAPHS_INCLUDE_GRAPH_NODE_H
-#define TEST_GRAPHS_INCLUDE_GRAPH_NODE_H
+#ifndef GRAPH_INCLUDE_GRAPH_NODE_H
+#define GRAPH_INCLUDE_GRAPH_NODE_H
 
-#include <string>
 #include <list>
+#include <string>
+
 #include "Edge.h"
+#include "Table.h"
 
 class GraphNode
 {
@@ -16,12 +18,19 @@ class GraphNode
 public:
 	GraphNode();
 	GraphNode(int x, int y);
+	GraphNode(std::string name, int x, int y);
 	~GraphNode();
 
 	void view();
-	void create_edge(GraphNode* node);
+	void view_table(GraphNode* node);
+	void view_parents();
+
+	void create_edge(GraphNode* direction);
+
+	static bool get_edge(GraphNode* start, GraphNode* direction);
+	inline std::string get_name() { return m_name; }
 
 	std::pair<int, int> get_position();
 };
 
-#endif // !TEST_GRAPHS_INCLUDE_GRAPH_NODE_H
+#endif // !GRAPH_INCLUDE_GRAPH_NODE_H
